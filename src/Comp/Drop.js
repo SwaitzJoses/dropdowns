@@ -5,22 +5,33 @@ import { useState } from "react";
 
 function Drop() {
   const [state, setState] = useState(["A", "B", "C", "D", "E"]);
+  const [state2, setState2] = useState([]);
 
   const remove = (i) => {
     const newArr = state.filter((f) => f !== i);
     setState(newArr);
-    console.log(newArr);
+    // console.log(newArr);
 
-    const array2 = [];
+   
 
-    let p = state.filter((x) => !newArr.includes(x));
-    console.log(p);
-    array2.push(p);
-    console.log(array2);
+    const p = state.filter((x) => !newArr.includes(x));
+    // console.log(p);
+    state2.push(...p);
+    // console.log(array2);
   };
 
-  const submit = () => {};
-
+  const submit = () => {
+      if(state2.length <3){
+          alert("select item from dropdown")
+      } else {
+      console.log(`removed items ${state2}`)
+      const rem = document.createElement("h1");
+      rem.setAttribute("className", "drop2");
+      rem.innerHTML=state2;
+      document.body.appendChild(rem)
+}
+    };
+     
   return (
     <div>
       <div className="drop">
@@ -31,7 +42,7 @@ function Drop() {
 
           <Dropdown.Menu>
             {state.map((i) => (
-              <Dropdown.Item value={state[i]} onClick={() => remove(i)}>
+              <Dropdown.Item  onClick={() => remove(i)}>
                 {i}
               </Dropdown.Item>
             ))}
@@ -47,7 +58,7 @@ function Drop() {
 
           <Dropdown.Menu>
             {state.map((i) => (
-              <Dropdown.Item value={state[i]} onClick={() => remove(i)}>
+              <Dropdown.Item  onClick={() => remove(i)}>
                 {i}
               </Dropdown.Item>
             ))}
@@ -63,7 +74,7 @@ function Drop() {
 
           <Dropdown.Menu>
             {state.map((i) => (
-              <Dropdown.Item value={state[i]} onClick={() => remove(i)}>
+              <Dropdown.Item  onClick={() => remove(i)}>
                 {i}
               </Dropdown.Item>
             ))}
