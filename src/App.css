@@ -1,0 +1,13 @@
+.container{
+    margin: 10%;
+   
+}
+
+.drop{
+    display:inline-block;
+    margin: 10px;
+}
+
+h1{
+    text-align: center;
+}
